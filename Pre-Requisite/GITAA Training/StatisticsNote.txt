@@ -1,0 +1,434 @@
+Statistical Notes : 
+
+Descriptive Stat: 
+It is a branch of statistics where we are dealing with the dataset and representation of that data set to achieve some conclusion from that. 
+                    -> Gathering the data and formalizig it 
+                    -> Visualization of data
+                    
+             That helps to measure as follow,
+                -> Center of the data - Using central tendency
+                -> Variation of the data over its mean 
+                -> Shape of the data like hoe the data is skew etc.
+                -> Typical mesurement of the sorted data
+
+                Using descriptive statistics, you can report characteristics of your data:
+
+                    The distribution concerns the frequency of each value.
+                    The central tendency concerns the averages of the values.
+                    The variability concerns how spread out the values are.
+
+Terms:
+Types of Data
+1. Qualitative Data (Categorical Data)
+2. Quantative Data (Nemerical Data)
+Type of Mesaurement
+1. Nominal Data (Relates to Categorical Data without order)
+2. Ordinal Data (Relates to Categorical Data with order)
+
+Ordinal Data are two type:
+1. Interval
+2. Ratio Level
+
+Type of Sampling:
+
+i. Random Sampling - It's a random activities where each and every one has equal chance to get picked while sampling done.
+ii. Systemetic Sampling - Sampling is done in a systemetic way like always take first 10 student from the population student 
+iii. Stratified Sampling - Here the entire population is divided in a small group like take only people aged between 60-70
+iv. Convinience Sampling - Sampling is done based on the easy to pick up sample.
+v. Clustered Sampling - Here the entire sample is grouped in small cluster.
+
+Measure of central tendency: It is measured by Mean/Median/Mode and Standard Deviation.
+
+Dependent Variable & Independent Variable : Lets say we have a data containing the temparture of a certain district in states of india. Here District will be the independent variable but temparature will be the dependent variable as for getting the teprature value from the table we need to take help of district.
+
+1. Mean : Numerical summaries are used to describe characteristics of the data such as the location or variability of the values. The most important measure of central location is the mean, or average. If the mean is computed from a sample of data, it is referred to as the sample mean and if its computed from a population its referred to as the population mean.
+
+Normally what ever we have discussed are called Arithmetic mean which is used when we have same kind of data with same type. But there are not always the case so we have to find out below type of means,
+
+            1. Arithmetic Mean : Used for same kind of data with same unit.
+            2. Geometric Mean : Used for data with varied type and unit.
+            3. Harmonic Mean : Used for ratio data
+            4. Weighted Mean : it is also same like average but it is multiplied with weight of the parameter which brings more sence compare to arithmetic mean.
+            
+            Relationship between Means:
+            Geometric Mean = sqrt(Arithmetic Mean * Harmonic Mean) -- It is called Pythagorean Mean
+
+
+
+    
+2. Median : If there are extreme values in the data, the median is the preferred measure of central location. The median is the middle value if there are an odd number of values and the average of the two middle values if there are an even number of values.
+
+3. Mode : The mode is the most common value in a range of data.
+
+
+        Effect of Mean, Median and Mode && IQR :
+            1. If any outlier present in the data then:
+                        Mean - Shifted towards the outllier
+                        Median & Mode - Remain unchanged
+                        IQR - No change
+            2. If the data set is changed or shifted (Means each data set value either +/- by some value)
+                        Mean - Will change and new value will be the +/- of the value by which each element is shifted
+                        Median - Same effect like Mean
+                        IQR - No change
+                    
+            3. If the data set is changed or shifted (Means each data set value either * / % by some value)
+                        Mean - Will change and new value will be the * / % of the value by which each element is shifted
+                        Median - Same effect like Mean
+                        IQR - Same effect like Mean
+
+
+
+4. Variance (https://www.scribbr.com/statistics/variance/) : How the data is distributed can be measured using variance. The variance is a measure of variability. It is calculated by taking the average of squared deviations from the mean. Variance is expressed in much larger units.
+
+    Co-efficient of Variance : The coefficient of variation (relative standard deviation) is a statistical measure of the dispersion of data points around the mean. The metric is commonly used to compare the data dispersion between distinct series of data. Unlike the standard deviation that must always be considered in the context of the mean of the data, the coefficient of variation provides a relatively simple and quick tool to compare different data series
+    
+5. Standard Deviation : The standard deviation is derived from variance and tells you, on average, how far each value lies from the mean. It’s the square root of variance.
+
+   Degree of Freedon : Degrees of freedom (df) defines the number of values in a dataset having the freedom to vary. It helps estimate parameters in statistical analysis or finds the missing or unknown value when making the final calculation.
+     i> For one sample test (DOF) = N-1
+     ii> For two sample test (DOF) = (N1+N2)-2
+
+6. Range : It is the difference between smallest and largest value of data.
+
+7. Inter Quartile Range : This is the range between the first and thrird quarter of the sample data. If inter quartile range is large that mean data is spread across the mean where as if IQR value is low then it means the data is squizzed around the mean. For Eg.
+                        
+                        Given: The first ten prime numbers are:
+                        2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+                        This is already in increasing order.Here the number of values = 10
+                        10 is an even number. Therefore, the median is mean of 11 and 13
+                        That is Q2(Median) = (11 + 13)/2 = 24/2 = 12.
+                        Now we have to get two parts i.e. lower half to find Q1 and the upper half to find Q3.
+                        Q1 part : 2, 3, 5,7,11
+                        Here the number of values = 5
+                        5 is an odd number. that is Q1= 5.5
+                        Q3 part : 13, 17, 19, 23, 29
+                        Here the number of values = 5
+                        5 is an odd number. that is Q3= 18.5
+                        The subtraction of Q1 and Q3 value is 18.5 – 5.5 = 13
+                        Therefore, 13 is the interquartile range value.
+                        
+        Semi-interquartile range : Half the distance between the first quartile point and the third quartile point
+
+8. Quantile/Percentile : Percentiles describe the location of a value relative to the rest of the data. The pth percentile is the value such that p% of the data is less than that value and (1-p)% of the data is greater than that value. Percentiles are calculated by first calculating an index using the formula i=(p/100)*n. Then, if the index is not an integer, round up and take the value in that position. If the index is an integer, average the values in positions i and i+1. Quartiles are the name given to some common percentiles. Quartile 1 (Q1) is the 25th percentile, Quartile 2 (Q2) is the 50th percentile and Quartile 3 (Q3) is the 75th percentile. All three quartiles along with the minimum and maximum values are called a five-number summary.
+    
+
+9. Frequency Distribution Table : A frequency distribution table displays the frequency of each data set in an organized way. It helps us to find patterns in the data and also enables us to analyze the data using measures of central tendency and variance. The first step that a mathematician does with the collected data is to organize it in the form of a frequency distribution table. All the calculations and statistical tests and analyses come later.
+
+            Construct a Frequency Distribution Steps : 
+            It is easy to make a frequency distribution table by using the steps given below:
+            Step 1: Make a table with two columns - one with the title of the data you are organizing and the other column will be for frequency. [Draw three columns if you want to add tally marks too]
+            Step 2: Look at the items written in the data and decide whether you want to draw an ungrouped frequency distribution table or a grouped frequency distribution table. If there are too many different values, then it is usually better to go with the grouped frequency distribution table.
+            Step 3: Write the data set values in the first column.
+            Step 4: Count how many times each item is repeating itself in the collected data. In other words, find the frequency of each item by counting.
+            Step 5: Write the frequency in the second column corresponding to each item.
+            Step 6: At last you can also write the total frequency in the last row of the table.
+            
+            Relative Frequency : (Frequecy/Total number of data in data set)*100%
+            
+            
+                            Age      Frequency         Relative Frequency
+                            10-19        1                (1/201)*100%
+                            20-29        2                (2/201)*100%
+                            30-29       40                (40/201)*100%
+                            40-49      158                (158/201)*100%
+            
+
+10. Bar/Pie/Histogram/ScatterPlot/LineGraph/BoxPlot:
+
+                                Qualitative Data (Categorical Data)         Quantative Data (Numerical Data)
+                                Bar Graph                                     Histogram
+                                                                              Box Plot
+                                Pie Chart                                     Frequency Table
+
+
+11. Skewness Calculation & Kurtosis - Skewness is a measure of asymmetry or distortion of symmetric distribution. It measures the deviation of the given distribution of a random variable from a symmetric distribution, such as normal distribution. A normal distribution is without any skewness, as it is symmetrical on both sides. Hence, a curve is regarded as skewed if it is shifted towards the right or the left.
+     Types of Skewness:    
+                    1. Positive Skewness (Mean>Median>Mode) - If the given distribution is shifted to the left and with its tail on the right side, it is a positively skewed distribution. It is also called the right-skewed distribution. A tail is referred to as the tapering of the curve differently from the data points on the other side. As the name suggests, a positively skewed distribution assumes a skewness value of more than zero. Since the skewness of the given distribution is on the right, the mean value is greater than the median and moves towards the right, and the mode occurs at the highest frequency of the distribution.
+                    
+                    2. Negative Skewness (Mean<Median<Mode) - If the given distribution is shifted to the right and with its tail on the left side, it is a negatively skewed distribution. It is also called a left-skewed distribution. The skewness value of any distribution showing a negative skew is always less than zero. The skewness of the given distribution is on the left; hence, the mean value is less than the median and moves towards the left, and the mode occurs at the highest frequency of the distribution.
+                    
+                    In case of skew in the data always mean is affected by outlier towards the tail so in that case Median is the correct measure of central tendency of the data & IQR is the better option over standard deviation to din find out the spread of the data.
+                    
+                    Kurtosis is a measure of the shape of the frequency curve. It measure the degree pf peakness of a frequency distribution curve. Tehre are three type of graph based on the peakness of the curve :
+                    i> Leptokurtic - If peak is relatively high (Kurt > 0)
+                    ii> Platykurtic - If the curve is relatively flat (Kurt < 0)
+                    iii> Mesokurtic - If the curve is normally distributed  (Kurt = 0)
+        Desire value of symetrical curve is 3. If Kurtosis > 3 then it's called positive kurtosis and if Kurt < 3 it is called negative kurtosis.
+        
+        
+        
+        
+        
+        
+        
+    
+12. Estimator and Estimation (Popluation : Parameter & Sample : Statistic) 
+                An "estimator" or "point estimate" is a statistic (that is, a function of the data) that is used to infer the value of an unknown parameter in a statistical model.
+                An estimation is a technique to find out the estimator for sample or population.
+
+
+13. Level of Confidence & Level of significance (P value significance) :
+                In statistics, the confidence level indicates the probability, with which the estimation of the location of a statistical parameter (e.g. an arithmetic mean) in a sample survey is also true for the population.
+                
+                The significance level, also known as alpha or α, is a measure of the strength of the evidence that must be present in your sample before you will reject the null hypothesis and conclude that the effect is statistically significant. The researcher determines the significance level before conducting the experiment.The significance level is the probability of rejecting the null hypothesis when it is true. For example, a significance level of 0.05 indicates a 5% risk of concluding that a difference exists when there is no actual difference. Lower significance levels indicate that you require stronger evidence before you will reject the null hypothesis.
+                    
+
+14. Z-Score : Z-score is also known as standard score gives us an idea of how far a data point is from the mean. It indicates how many standard deviations an element is from the mean. Hence, Z-Score is measured in terms of standard deviation from the mean. For example, a standard deviation of 2 indicates the value is 2 standard deviations away from the mean. In order to use a z-score, we need to know the population mean (μ) and also the population standard deviation (σ). 
+A positive z-score indicates a value is greater than the mean. A negative z-score indicates a value is less than the mean.
+
+            Question: 
+            You take the GATE examination and score 500. The mean score for the GATE is 390 and the standard deviation is 45. How well did you score on the test compared to the average test taker? 
+
+            Answer:
+            The following data is readily available in the above question statement 
+            Raw score/observed value = X = 500 
+            Mean score = μ = 390 
+            Standard deviation = σ = 45 
+            By applying the formula of z-score,  
+
+            z = (X – μ) / σ 
+            z = (500 – 390) / 45 
+            z = 110 / 45 = 2.44
+            This means that your z-score is 2.44. Since the Z-Score is positive 2.44, we will make use of the positive Z-Table. 
+            Now let’s take a look at Z Table (CC-BY) to know how well you scored compared to the other test-takers.
+            Follow the instruction below to find the probability from the table.
+            Here,  z-score = 2.44, As a result, you will get the final value which is 0.99266. Means score is better that 99.2% student.
+
+    Emperical Rule: 68 - 95 -99.7 : 
+                        In A Normal Distribution 
+                            68% of data reside between - (μ-σ) μ (μ+σ) 
+                            95% of data reside between - (μ-2σ) μ (μ+2σ) 
+                            99.7% of data reside between - (μ-3σ) μ (μ+3σ) 
+        Remaining portion are called tail.
+
+Probability & distribution :
+
+A. Continuous Distribution : 
+
+1. Normal Distribution - Graph obtained from normal distribution is bell-shaped curve, symmetric and has shrill tails.68% of all its all values should fall in the interval, i.e. (µ – σ , µ + σ )
+        µ -> Population Mean
+        σ -> Standard Deviation
+      Important : We can convert any normal distribution into a standard normal distribution. Normal distribution could be standardized to use the Z-table.
+          Z = (x-µ)/σ
+
+2. Chi-Squared Distribution - Chi-Squared distribution is frequently being used. It is mostly used to test wow of fit. It is denoted by Y ~ X2 (k).
+        1. The graph obtained from Chi-Squared distribution is asymmetric and skewed to the left means positive skew means Mean > Median.
+        2. It is square of the t-distribution.
+
+3. Exponential Distribution - It is usually observed in events which considerably change early on. It is mostly used with dynamically changing variables, such as online websites traffic.
+
+4. Logistic Distribution - It is used to observe how continuous variable inputs can affect the probability of a binary result.
+
+5. Student T Distribution - Students’ T Distribution or simply called T Distribution is used to estimate population limitation when the sample size is small and population variance is not known
+
+B. Discrete Distribution :
+
+1. Bernouli Distribution - In Bernoulli distribution there is only one trial and only two possible outcomes i.e. success or failure. It is denoted by y ~Bern(p).
+    
+    Characteristics of Bernoulli distributions:
+        1. It consists of a single trial
+        2. Two possible outcomes
+        3. E(Y) = p
+        4. Var(Y) = p × (1 – p)
+    Examples and Uses:
+        1.Guessing a single True/False question.
+        2. It is mostly used when trying to find out what we expect to obtain a single trial of an experiment.
+               
+       
+2. Binomial Distribution - A sequence of identical Bernoulli events is called Binomial and follows a Binomial distribution. It is denoted by Y ~B(n, p). Over the n trials, it measures the frequency of occurrence of one of the possible result.
+
+    Examples and Uses:
+        1. Simply determine, how many times we obtain a head if we flip a coin 10 times.
+
+3. Uniform Distribution - In uniform distribution, all the outcomes are equally likely.
+
+    Characteristics of Uniform Distribution:
+        1. In uniform distribution all the outcomes are equally likely.
+        2. In graph, all the bars are equally tall
+        3. The expected value and variance have no predictive power
+    Examples and Uses:
+        1. Result obtained after rolling a die
+        2. Due to its equality, it is mostly used in shuffling algorithms
+
+    4. Poisson Distribution - Poisson distribution is used to determine how likelihood a certain event occur over a given interval of time or distance. It measures the frequency over an interval of time or distance
+
+
+Inferential Statistics: This branch of statistics help to predict the outcome of the population parameter based on the sample statistic.
+ ref: https://www.scribbr.com/statistics/inferential-statistics/
+
+
+Inferential Statitics deal with two thing, as below,
+                1. Estimation  
+                    i>Point Estimate
+                    ii>Interval Estimate
+                2. Hypothesis Test
+
+Confidence Interval :        
+    
+    
+
+Statistical tests come in three forms: 
+            1. Tests of comparison - Comparison tests assess whether there are differences in means, medians or rankings of scores of two or more groups.
+            
+            Comparison test  Parametric?   What’s being compared      Samples
+                t-test           Yes          Means                  2 samples
+                ANOVA            Yes          Means                  3+ samples
+                Mood’s median    No           Medians                2+ samples
+                Wilcoxon signed
+                         -rank   No           Distributions          2 samples
+                Wilcoxon rank
+                    -sum 
+                (Mann-Whitney U) No           Sums of ranking        2 samples
+                Kruskal-Wallis H No            Mean rankings          3+ samples
+            
+            
+            2. CorRelation Test - Correlation tests determine the extent to which two variables are associated.
+            
+           
+            3. Regression Test - Regression tests demonstrate whether changes in predictor variables cause changes in an outcome variable. You can decide which regression test to use based on the number and types of variables you have as predictors and outcomes. Like Linear Regression, Logistic Regression etc.
+
+                
+    https://uw.pressbooks.pub/quantbusiness/chapter/hypothesis-testing-with-one-sample/
+
+1. Estimation
+2. Point Estimation & Interval Estimate & Standard Error
+    
+        Point Estimate - This will calculate exactly a specific value of statistic. This will be calculated using mean of the saqmple.
+        Interval Estimation - Where as this will give a range of a value of statistic. Where as this will be calculated based on mean and margin of error and range will be mean +- margin of error.
+    
+        Point Estimate -> There are two way we can calculate point Estimate,
+                        i> Point Estimate for Mean
+                        ii> Point Estimate for proportion
+        
+        
+        Interval Estimate - An interval estimate gives you a range of values where the parameter is expected to lie. A confidence interval is the most common type of interval estimate.
+        
+        
+    
+        Test Statistics: A test statistic describes how closely the distribution of your data matches the distribution predicted under the null hypothesis of the statistical test you are using.
+        The distribution of data is how often each observation occurs, and can be described by its central tendency and variation around that central tendency. Different statistical tests predict different types of distributions, so it’s important to choose the right statistical test for your hypothesis.
+        The test statistic summarizes your observed data into a single number using the central tendency, variation, sample size, and number of predictor variables in your statistical model.
+        Generally, the test statistic is calculated as the pattern in your data (i.e. the correlation between variables or difference between groups) divided by the variance in the data (i.e. the standard deviation).
+    
+    
+        Standard Error :The standard error of the mean, or simply standard error, indicates how different the population mean is likely to be from a sample mean. It tells you how much the sample mean would vary if you were to repeat a study using new samples from within a single population.The standard error of the mean (SE or SEM) is the most commonly reported type of standard error. But you can also find the standard error for other statistics, like medians or proportions. The standard error is a common measure of sampling error—the difference between a population parameter and a sample statistic.
+                        S.E = σ/n^1/2
+    
+    
+3. Hypothesis Testing (ref: //www.statssolver.com/hypothesis-testing.html)
+    One Tail Test & Two Tail Test) - There are two segregation, 1. Parametric 2. Non Parametric 
+4. Parametric Test & Non Parametric Test
+5. Anova
+6. T-Students Test
+7. F-Test
+8. T-Test & Z-Test
+9. Chi-Square Test
+10. Test for Means
+11. Test for Difference in Means
+12. Two Sample and One Sample Test
+13. Confidence Interval - A confidence interval uses the variability around a statistic to come up with an interval estimate for a parameter. Confidence intervals are useful for estimating parameters because they take sampling error into account.While a point estimate gives you a precise value for the parameter you are interested in, a confidence interval tells you the uncertainty of the point estimate. They are best used in combination with each other.Each confidence interval is associated with a confidence level. A confidence level tells you the probability (in percentage) of the interval containing the parameter estimate if you repeat the study again.A 95% confidence interval means that if you repeat your study with a new sample in exactly the same way 100 times, you can expect your estimate to lie within the specified range of values 95 times.
+
+        When you make an estimate in statistics, whether it is a summary statistic or a test statistic, there is always uncertainty around that estimate because the number is based on a sample of the population you are studying.
+
+        The confidence interval is the range of values that you expect your estimate to fall between a certain percentage of the time if you run your experiment again or re-sample the population in the same way.
+
+        The confidence level is the percentage of times you expect to reproduce an estimate between the upper and lower bounds of the confidence interval, and is set by the alpha value.
+
+        A confidence interval is the mean of your estimate plus and minus the variation in that estimate.
+
+                                Confidence level = 1 − α
+    So if you use an alpha value of p < 0.05 for statistical significance, then your confidence level would be 1 − 0.05 = 0.95, or 95%.
+    
+    
+    Calculate Confidence Interval: 
+    
+    ## Using Sample Mean : 
+    
+        ## If population standard deviation is known
+        Sample(n) = 10
+        Sample Mean(𝑥¯) = 3
+        SD(𝜎) = 2
+        Confidnce Level 95%
+        
+        Step 1 : Confidence Coefficient = 1 − α = 1-0.95 = 0.05 in both side like two tail. So one tail is 0.05/2 - 0.025
+        Step 2 : area to the left (1-0.025) = 0.975
+        Step 3 : Standard Normal Table -> Calculate Z scopre for 0.975 = 1.96
+        Step 4 : Margin of Error = Z𝛼/2 * 𝜎/√𝑛 = 1.96 * 2/√10 = 1.24
+        Step 5 : Confidence Interval = Mean +- Margin of Error = 3 + - 1.25
+        Ans : Cofindece Interval (1.76 - 4.24)
+    
+        ## If population standard deviation is not known
+        Sample(n) = 10
+        Sample Mean(𝑥¯) = 3
+        SD(s) = 2
+        Confidnce Level 95%
+    
+        Step 1 : Confidence Coefficient = 1 − α = 1-0.95 = 0.05 in both side like two tail. So one tail is 0.05/2 - 0.025
+        Step 2 : Find Degree of Freeedom (df) = n-1 = 10-1 = 9
+        Step 3 : Stident T distribution table shows Degree of Freedom and its respective T𝛼/2 Value in our case it is 2.262
+        Step 4:  Margin of Error = t𝛼/2 * s/√𝑛 = 1.43    
+        Step 5 : Confidence Interval = Mean +- Margin of Error = 3 + - 1.43
+        Ans : Cofindece Interval (1.57 - 4.43)
+    
+     ## Using Sample Proportion :
+    
+        Sample(n) = 10
+        Sample Proportion(p¯) = 0.25
+        Confidnce Level 95%
+        
+         Step 1 : Confidence Coefficient = 1 − α = 1-0.95 = 0.05 in both side like two tail. So one tail is 0.05/2 - 0.025
+         Step 2 : area to the left (1-0.025) = 0.975
+         Step 3 : Standard Normal Table -> Calculate Z scopre for 0.975 = 1.96
+         Step 4:  Margin of Error = 0.0849
+         Step 5 :  Confidence Interval = Proportion +- Margin of Error = 0.25 + - 0.0849
+        Ans : Cofindece Interval (.1651 - .3349)
+
+14. Goodness of fit
+15. Co-Variance -  This measure the relationship between two variable. how much one variable is attached or associated with other is defined by this. It does not have any boundary or i would say it can be considered as unbounded. If the value is positive then we can consider both variable is ,oving in same direction and vice versa.
+16. Co-Relation - It is also same as covariance but bounded between -1 to 1.
+17. Linear & Logistics Regression
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Pre-requisite Program : 
+
+Week 1 : 
+Pearson's Corelation CoEfficient: 
+
+CoRelation Matrix : 
+
+pp & qq plot : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Basics of Machine Learning: 
+
+
+
+
+
+
