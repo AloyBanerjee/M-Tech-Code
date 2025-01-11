@@ -1,0 +1,40 @@
+from pyspark import SparkConf, SparkContext
+from operator import add
+
+# Initialize Spark
+conf = SparkConf().setMaster('local').setAppName('CommonWords')
+sc = SparkContext.getOrCreate(conf=conf)
+
+# List of files
+files = ['/content/pg1513.txt', '/content/2160-0.txt', '/content/pg11.txt', '/content/1080-0.txt', '/content/pg1998.txt', 
+         '/content/pg2600.txt', '/content/pg345.txt', '/content/pg64317.txt', '/content/pg70815.txt', '/content/pg70817.txt']
+
+# Process each file to get RDDs of words
+rdd_list = []
+for file in files:
+    rdd = sc.textFile(file)
+    words = rdd.flatMap(lambda line: line.split(" "))
+    rdd_list.append(words)
+
+# Compute intersection of all files to get common words
+common_words_rdd = rdd_list[0]
+for rdd in rdd_list[1:]:
+    common_words_rdd = common_words_rdd.intersection(rdd)
+
+common_words = common_words_rdd.distinct().collect()
+
+print("Common Words are:", common_words)
+
+# Now process each file to get word frequencies
+freq_dict = {}
+for file in files:
+    rdd = sc.textFile(file)
+    words = rdd.flatMap(lambda line: line.split(" "))
+    word_freq = words.countByValue()
+    for word in common_words:
+        if word in word_freq:
+            if word not in freq_dict:
+                freq_dict[word] = {}
+            freq_dict[word][file] = word_freq[word]
+
+print(freq_dict)
