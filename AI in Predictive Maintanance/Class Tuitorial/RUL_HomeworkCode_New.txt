@@ -1,0 +1,170 @@
+# Importing the libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from sympy import solve, symbols, N
+from sklearn.metrics import r2_score
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
+
+# Provided data
+tk = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+yk = np.array([1.87, 5.4, 6.86, 12.76, 19.89, 30.05, 38.76, 60.7, 83.35, 106.93, 141.19])
+L = 2
+
+# Defining the functions
+
+# Design matrix
+def design_matrix(x, L=1):
+    return np.column_stack((np.ones(len(x)), L * x**2, x**3))
+
+def predicted_values(x, theta):
+    X = design_matrix(x)
+    return X @ theta
+
+def true_values(x, theta):
+    X = design_matrix(x)
+    return X @ theta
+
+# Observed data
+x_observed = tk
+y_observed = yk
+
+# Estimated parameters and prediction
+theta_estimated = np.linalg.lstsq(design_matrix(x_observed), y_observed, rcond=None)[0]
+x_new = np.arange(x_observed[-1], x_observed[-1] + 15.5, 0.5)
+
+# Plotting the data and the predictions
+plt.figure(figsize=(10, 6))
+plt.plot(x_observed, y_observed, '.k', markersize=10, label='Observed Data')
+plt.plot(x_new, predicted_values(x_new, theta_estimated), '--r', linewidth=3, label='Predicted Degradation')
+plt.xlabel('Cycles')
+plt.ylabel('Degradation level')
+plt.title('Degradation Prediction')
+plt.legend(loc='upper left')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+# Calculate the End of Life (EOL) based on the threshold value
+def calculate_eol(thres, Theta, L=1):
+    xEOL = symbols('xEOL')
+    XEOL = np.array([1, L * xEOL**2, xEOL**3])
+    eolFuc = thres - np.dot(XEOL, Theta)  # EOL func.
+
+    # Solving the equation for 'xEOL' symbolically
+    eol_solutions = solve(eolFuc, xEOL, real=True)
+
+    # Convert the solutions to floating-point numbers
+    eol = [N(sol) for sol in eol_solutions if sol.is_real]
+
+    return eol
+
+# Calculate EOL with threshold = 150
+thres = 150
+eol_values = calculate_eol(thres, theta_estimated)
+valid_solutions = [sol for sol in eol_values if sol >= x_observed[-1]]
+currt = x_observed[-1]
+while True:
+    # Find the minimum positive RUL
+    rul = min(valid_solutions) - currt
+
+    print(f"Predicted RUL at cycle {currt}: {rul}")
+
+    # Check if RUL is zero or negative
+    if rul <= 0:
+        break
+
+    # Update 'currt' for the next iteration
+    currt += 1
+
+# Display the estimated parameters
+print("The estimated Theta is:", theta_estimated)
+
+# Assumed functional forms for z1, z2, and z3 models
+def z1_model(x, h1, h2):
+    return h1 + h2 * x
+
+def z2_model(x, h1, h2, h3):
+    return h1 + h2 * x + h3 * x**2
+
+def z3_model(x, h1, h2, h3, h4):
+    return h1 + h2 * x + h3 * x**2 + h4 * x**3
+
+models = [
+    ('Model z1', 1),
+    ('Model z2', 2),
+    ('Model z3', 3)
+]
+
+# Lists to store the coefficients for each model
+coefficients_list = []
+plt.figure(figsize=(18, 6))
+# Loop through the models and create comparison plots
+for i, (model_name, degree) in enumerate(models):
+    poly_features = PolynomialFeatures(degree=degree)
+    X_poly = poly_features.fit_transform(x_observed.reshape(-1, 1))
+    model = LinearRegression()
+    model.fit(X_poly, y_observed)
+    y_pred = np.dot(X_poly, model.coef_.reshape(-1, 1))
+
+    # Calculate the R-squared value for the current model
+    r2 = r2_score(y_observed, y_pred)
+
+    # Store the coefficients for the current model
+    coefficients_list.append(model.coef_)
+    
+    # Create the subplot for the current model
+    
+    plt.subplot(1, 3, i + 1)
+    plt.scatter(x_observed, y_observed, color='red', label='Observed Data', s=80)
+    plt.plot(x_observed, y_pred, linewidth=2, label=f'Fitted Curve ({model_name}), R2: {r2:.4f}')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title(f'Model {model_name} Fit vs. Observed Data')
+    plt.legend()
+    plt.grid(True)
+
+for i, (model_name, _) in enumerate(models):
+    print(f'Model {model_name} coefficients: {coefficients_list[i]}')
+    
+# Plotting the true degradation curve and the fitted curves for each model
+plt.figure(figsize=(18, 6))
+plt.subplot(1, 4, 1)
+plt.scatter(x_observed, y_observed, color='red', label='Observed Data', s=80)
+plt.plot(x_observed, y_observed, 'k', linewidth=3, label='True Degradation')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('True Degradation vs. Observed Data')
+plt.legend()
+plt.grid(True)
+
+
+plt.tight_layout()
+plt.show()
+
+
+plt.figure(figsize=(18, 6))
+for i, (model_name, degree) in enumerate(models):
+    poly_features = PolynomialFeatures(degree=degree)
+    X_poly = poly_features.fit_transform(x_observed.reshape(-1, 1))
+    model = LinearRegression()
+    model.fit(X_poly, y_observed)
+    print(X_poly.shape)
+    print(coefficients_list)
+    y_pred = X_poly @ coefficients_list[i].reshape(-1, 1)
+
+    # Calculate the R-squared value for the current model
+    r2 = r2_score(y_observed, y_pred)
+
+    # Create the subplot for the current model
+    plt.subplot(1, 3, i + 1)  # Corrected the subplot index to i + 1
+    plt.scatter(x_observed, y_observed, color='red', label='Observed Data', s=80)
+    plt.plot(x_observed, y_pred, linewidth=2, label=f'Fitted Curve ({model_name}), R2: {r2:.4f}')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title(f'Model {model_name} Fit vs. Observed Data')
+    plt.legend()
+    plt.grid(True)
+
+plt.tight_layout()
+plt.show()
